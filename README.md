@@ -1,228 +1,90 @@
-# 📈 Stock News Aggregator
+# 📈 StockDriverNews
 
-A comprehensive stock news aggregator that provides intelligent news classification, insider trading tracking, and institutional holdings analysis for informed investment decisions.
+**Intelligent stock analysis platform that distinguishes true stock drivers from market noise**
 
 ## 🚀 Features
 
-### Core Functionality
-- **🔍 Stock Search & Watchlist**: Add stocks to your personal watchlist and get real-time updates
-- **📰 Intelligent News Aggregation**: Automated categorization of news as stock-specific, competitor-related, industry-wide, or macro-economic
-- **👥 Insider Trading Tracking**: Monitor director and officer buy/sell transactions with sentiment analysis
-- **🏦 Institutional Holdings**: Track 13F filings and hedge fund position changes
-- **📊 Interactive Charts**: Multiple timeframe price charts (1D, 5D, 1M, YTD, 1Y, 5Y)
-- **🎯 Competitor Analysis**: Cross-stock impact analysis and competitive read-throughs
+### ✨ Core Intelligence
+- **Smart News Classification** - Distinguishes stock-specific vs macro/market-wide events
+- **Movement Analysis** - Explains WHY stocks moved with confidence scoring
+- **Competitor Read-Through** - Analyzes how rival company news affects your stocks
+- **Priority Scoring** - Intelligent 1-10 scale ranking based on price movement + news impact
 
-### Smart Classification System
-- **Stock-Specific**: Earnings, product launches, management changes
-- **Competitor Impact**: How related companies' news affects your stocks
-- **Industry/Regulatory**: Sector-wide developments and regulatory changes
-- **Macro Events**: Fed decisions, economic indicators, geopolitical events
+### 📊 Real-Time Data
+- **Live Stock Prices** - Real-time market data integration
+- **Breaking News** - Instant financial news aggregation from multiple sources
+- **Daily Digest** - Comprehensive watchlist overview with priority alerts
+- **Market Correlation** - Detects macro vs stock-specific movements
 
-### Data Sources Integration
-- **News APIs**: Multi-source news aggregation with relevance scoring
-- **SEC Filings**: Real-time insider trading and institutional holdings data
-- **Stock Data**: Real-time price feeds and historical data
-- **13F Filings**: Quarterly institutional holdings analysis
+### 🏦 Hedge Fund Ready
+- **Professional APIs** - Integrated with NewsAPI, Alpha Vantage, Twelve Data
+- **Scalable Architecture** - React frontend + Node.js backend
+- **Enterprise Features** - Ready for Bloomberg/Reuters integration
 
-## 🛠️ Technology Stack
-
-### Frontend
-- **React 18** with TypeScript
-- **React Router** for navigation
-- **Recharts** for data visualization
-- **Responsive CSS** with mobile-first design
-
-### Backend
-- **Node.js** with Express
-- **PostgreSQL** for structured data storage
-- **RESTful API** architecture
-- **JWT Authentication**
-- **Rate limiting** and security headers
-
-### APIs & Data Sources
-- News APIs (NewsAPI, Alpha Vantage, Polygon.io)
-- SEC EDGAR API for filings
-- Stock price feeds (Yahoo Finance, IEX Cloud)
-- Institutional data (WhaleWisdom, Fintel)
-
-## 🏗️ Project Structure
+## 🏗️ Architecture
 
 ```
-stock-news-aggregator/
-├── client/                 # React frontend
-│   ├── src/
-│   │   ├── components/    # Reusable UI components
-│   │   ├── pages/         # Route components
-│   │   ├── services/      # API services
-│   │   └── types/         # TypeScript definitions
-├── server/                # Node.js backend
-│   ├── routes/           # API endpoints
-│   ├── models/           # Data models
-│   ├── services/         # Business logic
-│   └── utils/            # Helper functions
-└── database/             # Database schema and migrations
+├── client/          # React TypeScript frontend
+├── server/          # Node.js Express backend
+├── docs/           # Setup guides and documentation
+└── README.md
 ```
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-### Prerequisites
-- Node.js 16+ and npm
-- PostgreSQL 12+
-- API keys for data sources (see configuration section)
-
-### Installation
-
-1. **Clone and install dependencies:**
+### 1. Install Dependencies
 ```bash
-git clone <repository-url>
-cd stock-news-aggregator
-npm run install:all
+# Backend
+cd server && npm install
+
+# Frontend  
+cd client && npm install
 ```
 
-2. **Database setup:**
+### 2. Configure APIs
 ```bash
-# Create PostgreSQL database
-createdb stock_news_db
-
-# Run schema setup
-psql -d stock_news_db -f database/schema.sql
+# Add to server/.env:
+NEWS_API_KEY=your_newsapi_key
+ALPHA_VANTAGE_API_KEY=your_alphavantage_key
 ```
 
-3. **Environment configuration:**
+### 3. Start Development
 ```bash
-# Copy example environment file
-cp server/.env.example server/.env
+# Backend: http://localhost:3001
+cd server && npm run dev
 
-# Edit server/.env with your configuration
+# Frontend: http://localhost:3000
+cd client && npm start
 ```
 
-4. **Start the application:**
-```bash
-# Development mode (runs both frontend and backend)
-npm run dev
+## 📱 Live Demo Features
 
-# Or start services separately:
-npm run server:dev  # Backend on port 3001
-npm run client:dev  # Frontend on port 3000
-```
+- **Dashboard** - Market overview with trending stocks
+- **Stock Detail** - Individual analysis with WHY explanations
+- **Daily Digest** - Priority-ranked watchlist with intelligent alerts
+- **News Classification** - Real-time categorization of market events
 
-## ⚙️ Configuration
+## 🔧 API Integrations
 
-### Required API Keys
+- **NewsAPI** - Real-time financial news aggregation
+- **Alpha Vantage** - Enhanced stock fundamentals  
+- **Twelve Data** - Live stock price feeds
+- **Smart Fallbacks** - Multiple data sources for reliability
 
-Add these to your `server/.env` file:
+## 💰 Scaling Path
 
-```env
-# News aggregation
-NEWS_API_KEY=your_news_api_key
-ALPHA_VANTAGE_API_KEY=your_alpha_vantage_key
-POLYGON_API_KEY=your_polygon_key
-IEX_CLOUD_API_KEY=your_iex_cloud_key
-FINNHUB_API_KEY=your_finnhub_key
+- **Current**: Free APIs (NewsAPI, Alpha Vantage) - $0/month
+- **Professional**: Premium APIs (IEX Cloud Pro, Benzinga) - $800/month
+- **Enterprise**: Institutional data (Bloomberg, Reuters) - $5,000+/month
 
-# Database
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=stock_news_db
-DB_USER=your_db_username
-DB_PASSWORD=your_db_password
+## 🏆 Key Differentiators
 
-# Security
-JWT_SECRET=your_jwt_secret_key
-```
-
-### API Key Sources
-- **NewsAPI**: https://newsapi.org/
-- **Alpha Vantage**: https://www.alphavantage.co/
-- **Polygon.io**: https://polygon.io/
-- **IEX Cloud**: https://iexcloud.io/
-- **Finnhub**: https://finnhub.io/
-
-## 📊 API Endpoints
-
-### Stocks
-- `GET /api/stocks` - Search stocks
-- `GET /api/stocks/:symbol` - Get stock details
-- `GET /api/stocks/:symbol/price-history` - Price history
-- `POST /api/stocks/:symbol/watchlist` - Add to watchlist
-
-### News
-- `GET /api/news/:symbol` - Get stock news
-- `GET /api/news/:symbol/today` - Today's news
-- `GET /api/news/:symbol/competitor-impact` - Competitor analysis
-- `POST /api/news/classify` - Classify news article
-
-### Insider Trading
-- `GET /api/insider/:symbol` - Insider trading data
-- `GET /api/insider/:symbol/recent` - Recent activity
-- `GET /api/insider/:symbol/competitors` - Competitor insider activity
-
-### Institutional Holdings
-- `GET /api/institutional/:symbol` - Institutional holdings
-- `GET /api/institutional/:symbol/changes` - Holdings changes
-- `GET /api/institutional/:symbol/13f-highlights` - Notable 13F moves
-
-## 🎯 Usage Examples
-
-### Search and Add Stocks
-1. Use the search bar to find stocks by symbol (e.g., \"AAPL\", \"TSLA\")
-2. Click on a stock to view its detailed page
-3. Add stocks to your watchlist for monitoring
-
-### Monitor News Impact
-- View categorized news for each stock
-- Filter by news type (stock-specific, competitor, industry, macro)
-- Track sentiment scores and relevance ratings
-
-### Track Insider Activity
-- Monitor director and officer transactions
-- Analyze buying vs. selling patterns
-- Get alerts for significant insider moves
-
-### Institutional Analysis
-- Track quarterly 13F filings
-- Monitor new positions and position changes
-- Identify trending institutional moves
-
-## 🔮 Roadmap
-
-### Phase 1: Enhanced Data Integration
-- [ ] Real-time news classification ML model
-- [ ] Advanced sentiment analysis
-- [ ] Competitor relationship mapping
-- [ ] Historical backtesting
-
-### Phase 2: Advanced Features
-- [ ] Price alerts and notifications
-- [ ] Portfolio tracking integration
-- [ ] Social sentiment analysis
-- [ ] Options flow tracking
-
-### Phase 3: Analytics & Insights
-- [ ] Predictive analytics
-- [ ] Risk assessment tools
-- [ ] Performance attribution
-- [ ] Custom dashboards
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Financial data providers for API access
-- SEC for public filing data
-- Open source community for tools and libraries
-- Contributors and beta testers
+1. **Intelligent Classification** - Not just news aggregation, but smart categorization
+2. **Movement Explanations** - Answers "WHY did my stock move?"
+3. **Competitor Analysis** - Cross-stock impact detection
+4. **Priority Intelligence** - Focus on what matters most
+5. **Hedge Fund Architecture** - Built for professional scaling
 
 ---
 
-**⚠️ Disclaimer**: This tool is for informational purposes only and should not be considered as financial advice. Always do your own research and consult with financial professionals before making investment decisions.
+**🎯 Built to distinguish true stock drivers from market noise**
