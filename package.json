@@ -1,0 +1,20 @@
+{
+  "name": "stock-news-aggregator",
+  "version": "1.0.0",
+  "description": "A comprehensive stock news aggregator with insider trading and institutional holdings tracking",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && npm run dev",
+    "client:dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "start": "cd server && npm start",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install"
+  },
+  "keywords": ["stocks", "news", "aggregator", "insider-trading", "13f", "financial"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
